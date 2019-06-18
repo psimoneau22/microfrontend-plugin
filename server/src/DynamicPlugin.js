@@ -21,17 +21,20 @@ export default function DynamicPlugin({ id: pluginId }) {
                     return;
                 };
 
-                const existing = document.querySelector(`script[data-plugin-id="${plugin.id}"]`);
-                if(existing) {
-                    return;
-                };
-
-                const script = document.createElement('script');
-                script.setAttribute('src', plugin.uri)
-                script.onload = function() {
+                const render = () => {
                     const { Root: PluginRoot } = window[pluginId];
                     ReactDOM.render(<PluginRoot />, targetElement.current);
                 }
+
+                const existing = document.querySelector(`script[data-plugin-id="${plugin.id}"]`);
+                if(existing) {
+                    return render();
+                };
+
+                const script = document.createElement('script');
+                script.setAttribute('src', plugin.uri);
+                script.setAttribute('data-plugin-id', plugin.id);
+                script.onload = render;
 
                 document.body.appendChild(script);
             });
