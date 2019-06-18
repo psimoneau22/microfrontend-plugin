@@ -6,9 +6,7 @@ export default function DynamicPlugin({ id: pluginId }) {
     const targetElement = useRef();
 
     useEffect(() => {
-        if(pluginId) {
-            renderPlugin(pluginId);
-        }
+        renderPlugin(pluginId);
 
         return destroyPlugin;
     }, [pluginId])
