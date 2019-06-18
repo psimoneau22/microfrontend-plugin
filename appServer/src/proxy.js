@@ -1,4 +1,4 @@
-const pluginRegistryUri = "http://localhost:5001/pluginRegistration.json";
+const pluginRegistryUri = "http://localhost:5001/dist/pluginRegistration.json";
 
 export function fetchPluginMetadata() {
     return fetch(pluginRegistryUri)

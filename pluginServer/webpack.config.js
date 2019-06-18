@@ -39,7 +39,7 @@ module.exports = {
     },
     plugins: [
         new AssetsPlugin({
-            path: 'wwwroot',
+            path: 'wwwroot/dist',
             filename: 'pluginRegistration.json',
             processOutput: assets => JSON.stringify(Object.entries(assets).reduce((manifest, [key, value]) => ({
                 ...manifest,
