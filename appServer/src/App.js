@@ -3,6 +3,7 @@ import { fetchPluginMetadata } from './proxy';
 //import Plugin from './DynamicPlugin';
 import Plugin from './DynamicPluginConnected';
 
+//test
 export default function App() {
     const [pluginId, setPluginId] = useState();
     const [availablePlugins, setAvailablePlugins] = useState();
